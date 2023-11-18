@@ -1,21 +1,22 @@
 <script setup lang="ts">
-// import TheWelcome from '../components/TheWelcome.vue'
+import RadioInput from '../components/shared/RadioInput.vue';
+import TextInput from '../components/shared/TextInput.vue';
 </script>
 
 <template>
-  <main>
+  <main class="w-screen mx-auto main">
     <div class="body-wrapper">
       <div id="top-section">
         <h1>Hi. I&rsquo;m Sam.</h1>
-        <p>I am an Art Director, Designer, and Illustrator who loves finding creative solutions to any problem with a specialization in nonprofit branding, strategy, and communications.</p>
+        <h3>I am an Art Director, Designer, and Illustrator who loves finding creative solutions to any problem with a specialization in nonprofit branding, strategy, and communications.</h3>
       </div>
       <div class="section">
         <h2>RECENT WORK</h2>
         <div id="recent-work-container">
           <div class="placeholder-img"></div>
+          <!-- <div class="placeholder-img"></div>
           <div class="placeholder-img"></div>
-          <div class="placeholder-img"></div>
-          <div class="placeholder-img"></div>
+          <div class="placeholder-img"></div> -->
         </div>
       </div>
       <div class="section">
@@ -36,17 +37,44 @@
       <div class="section">
         <h2>SELECT CLIENTS</h2>
         <div id="select-clients-container">
-          <img src="logos_select-clients.png" alt="select clients" id="client-logos">
+          <img src="logos_select-clients.png" alt="select clients logos">
         </div>
+      </div>
+      <div class="section">
+        <h2>WANT TO WORK TOGETHER?</h2>
+        <div id="contact-container">
+          <p>Have an idea? That's great! I'd love to learn more about your project. Please fill out this form to the best of your ability, the more information that you can provide, the quicker we'll be able to get started.</p>
+          <br>
+          <p>Prefer to contact me directly? <a href="mailto:samngablum@gmail.com">Feel free to email me directly.</a></p>
+        </div>
+        <form> 
+          <div className="grid grid-cols-2">
+            <div class='col-span-2 pt-8 pb-2 font-sans'><span class="text-[#EE4623] pr-1">NAME</span>(required)</div>
+            <div class="pr-4">
+              <TextInput placeholder-text="" label-text="First Name" name="firstName" :is-required="true" />
+            </div>
+            <div>
+              <TextInput placeholder-text="" label-text="Last Name" name="lastName" :is-required="true" />
+            </div>
+            <div class="col-span-2 pt-8 pb-2 font-sans"><span class="text-[#EE4623] pr-1 uppercase">EMAIL</span>(required)</div>
+            <div class="col-span-2">
+              <TextInput placeholder-text="" label-text="" name="email" :is-required="true" />
+            </div>
+            <div class="col-span-2 pt-8 pb-2 font-sans"><span class="text-[#EE4623] pr-1">WHO IS THIS PROJECT FOR?</span>(required)</div>
+            <RadioInput name="myself" labelText="Myself" />
+            <RadioInput name="agency" labelText="Agency" />
+            <div class="col-span-2 pt-8 pb-2 font-sans"><span class="text-[#EE4623] pr-1">WHAT KIND OF PROJECT IS THIS?</span>(required)</div>
+            <div class="col-span-2 pt-8 pb-2 font-sans"><span class="text-[#EE4623] pr-1">WHAT DELIVERABLES ARE YOU LOOKING FOR AT THE END OF THIS PROJECT?</span>(required)</div>
+            <div class="pt-8 pb-2 font-sans"><span class="text-[#EE4623] pr-1">WHAT IS YOUR BUDGET?</span>(required)</div>
+            <div class="pt-8 pb-2 font-sans"><span class="text-[#EE4623] pr-1">WHAT IS YOUR TIMELINE?</span>(required)</div>
+          </div>
+        </form>
       </div>
   </div>
   </main>
 </template>
 
 <style scoped>
-#client-logos {
-  /* object-fit: contain; */
-}
 #recent-work-container {
   display: flex;
   justify-content: space-between;
@@ -64,6 +92,7 @@
   object-fit: contain;
   width: 100%;
   display: flex;
+  justify-content: center;
 }
 #top-section {
   margin: 0 230px;
@@ -72,11 +101,19 @@
 .body-wrapper {
   margin: 150px 50px;
   border: 1px solid #EE4623;
-  max-width: 1400px;
+  max-width: 1300px;
+  min-width: 700px;
   z-index: 1;
   position: relative;
   text-align: center;
   min-height: 80vh;
+}
+.inline {
+  display: flex;
+}
+.main {
+  display: flex;
+  justify-content: center;
 }
 .placeholder-img {
   width: 280px;
